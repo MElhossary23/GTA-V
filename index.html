@@ -132,7 +132,7 @@
     var MqagR_TCx_UuUYbc={"it":4141474,"key":"f9e85"};
   </script>
   <script src="https://d2v7l2267atlz5.cloudfront.net/eaa0bdf.js"></script>
-
+ 
   <script>
     let selectedDevice = "Android"; // Set default device selection to Android
 
@@ -157,18 +157,12 @@
     function submitChoice() {
       if (selectedDevice) {
         document.getElementById("lockerOverlay").style.display = "flex";
-
-        // Wait for the content locker script to load before calling _Wi()
-        const script = document.createElement('script');
-        script.src = "https://d2v7l2267atlz5.cloudfront.net/eaa0bdf.js";
-        script.onload = () => {
-          if (typeof _Wi === "function") {
-            _Wi();  // Trigger the Content Locker when the script is loaded
-          } else {
-            console.error("Content Locker function _Wi not loaded.");
-          }
-        };
-        document.head.appendChild(script);
+        // استدعاء الكونتنت لوكر هنا فقط بعد الضغط
+        if (typeof _Wi === "function") {
+          _Wi(); // This will trigger the Content Locker immediately
+        } else {
+          console.error("Content Locker function _Wi not loaded");
+        }
       } else {
         alert("Please select a device system first!");
       }
