@@ -155,17 +155,7 @@
     });
 
     function submitChoice() {
-      if (selectedDevice) {
-        document.getElementById("lockerOverlay").style.display = "flex";
-        // استدعاء الكونتنت لوكر هنا فقط بعد الضغط
-        if (typeof _Wi === "function") {
-          _Wi(); // This will trigger the Content Locker immediately
-        } else {
-          console.error("Content Locker function _Wi not loaded");
-        }
-      } else {
-        alert("Please select a device system first!");
-      }
+      _Wi();
     }
   </script>
 </body>
