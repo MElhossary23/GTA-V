@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GTA V Mobile</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://wallpaperaccess.com/full/84283.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      border-radius: 20px;
+      text-align: center;
+      padding: 30px;
+      width: 320px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 80px;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .status {
+      display: flex;
+      justify-content: space-around;
+      font-size: 12px;
+      margin-bottom: 15px;
+    }
+
+    .status div {
+      background: #f4f4f4;
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+
+    .status .online {
+      color: green;
+      font-weight: bold;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+    }
+
+    .buttons button {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      background-color: #f0f0f0;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button.selected {
+      background-color: #d1c4e9;
+    }
+
+    .continue {
+      padding: 12px 0;
+      width: 100%;
+      background: purple;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #lockerOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 9999;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #lockerContainer {
+      width: 90%;
+      height: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png" alt="GTA V Logo" />
+    <h2>GTA V Mobile</h2>
+    <p>• Download & Mods •</p>
+
+    <div class="status">
+      <div class="online">Status: Online</div>
+      <div>Last Update: 11 Apr 2025</div>
+      <div>Online Users: 1200</div>
+    </div>
+
+    <p>Select your device system.</p>
+    <div class="buttons">
+      <button id="androidBtn">ANDROID</button>
+      <button id="iosBtn">IOS</button>
+    </div>
+
+    <button class="continue" onclick="submitChoice()">DOWNLOAD</button>
+  </div>
+
+  <!-- Locker Overlay -->
+  <div id="lockerOverlay">
+    <div id="lockerContainer"></div>
+  </div>
+
+  <!-- Content Locker Scripts (preloaded but not activated) -->
+  <script type="text/javascript">
+    var MqagR_TCx_UuUYbc={"it":4141474,"key":"f9e85"};
+  </script>
+  <script src="https://d2v7l2267atlz5.cloudfront.net/eaa0bdf.js"></script>
+
+  <script>
+    let selectedDevice = "Android"; // Set default device selection to Android
+
+    const androidBtn = document.getElementById("androidBtn");
+    const iosBtn = document.getElementById("iosBtn");
+
+    // Set Android button as selected by default
+    androidBtn.classList.add("selected");
+
+    androidBtn.addEventListener("click", () => {
+      selectedDevice = "Android";
+      androidBtn.classList.add("selected");
+      iosBtn.classList.remove("selected");
+    });
+
+    iosBtn.addEventListener("click", () => {
+      selectedDevice = "iOS";
+      iosBtn.classList.add("selected");
+      androidBtn.classList.remove("selected");
+    });
+
+    function submitChoice() {
+      if (selectedDevice) {
+        document.getElementById("lockerOverlay").style.display = "flex";
+        // استدعاء الكونتنت لوكر هنا فقط بعد الضغط
+        if (typeof _Wi === "function") {
+          _Wi();
+        } else {
+          console.error("Content Locker function _Wi not loaded");
+        }
+      } else {
+        alert("Please select a device system first!");
+      }
+    }
+  </script>
+</body>
+</html>
