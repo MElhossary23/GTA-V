@@ -159,7 +159,7 @@
         document.getElementById("lockerOverlay").style.display = "flex";
         // استدعاء الكونتنت لوكر هنا فقط بعد الضغط
         if (typeof _Wi === "function") {
-          _Wi();
+          _Wi();  // This will trigger the Content Locker immediately
         } else {
           console.error("Content Locker function _Wi not loaded");
         }
